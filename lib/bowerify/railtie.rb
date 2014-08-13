@@ -9,5 +9,13 @@ module Bowerify
       app.assets.register_preprocessor 'text/css', Bowerify::AssetsProcessor
       app.assets.register_preprocessor 'application/javascript', Bowerify::AssetsProcessor
     end
+
+    config.after_initialize do |app|
+      %w[png gif jpg jpeg ttf svg eot woff].each do |ext|
+        Array(app.config.bower_components_path).each do |bower_path|
+          config.assets.precompile += Dir.glob("#{bower_path}/**/*.#{ext}")
+        end
+      end
+    end
   end
 end
