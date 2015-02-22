@@ -15,7 +15,7 @@ module Bowerify
     config.after_initialize do |app|
       app.config.assets.paths += Array(app.config.bower_components_path)
 
-      %w[png gif jpg jpeg ttf svg eot woff].each do |ext|
+      %w[png gif jpg jpeg ttf svg eot woff woff2].each do |ext|
         Array(app.config.bower_components_path).each do |bower_path|
           config.assets.precompile += Dir.glob("#{bower_path}/**/*.#{ext}")
         end
