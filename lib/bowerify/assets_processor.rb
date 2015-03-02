@@ -1,5 +1,5 @@
 class Bowerify::AssetsProcessor < Sprockets::Processor
-  CSS_URL_RE = /(url\(('|"|))((.+?)\.(gif|png|jpg|jpeg|ttf|svg|woff|woff2|eot))(.*?\2\))/
+  CSS_URL_RE = /(url\(('|"|))((.+?)\.(gif|png|jpg|jpeg|ttf|svg|woff2|woff|eot))(.*?\2\))/
 
   def evaluate(context, locals={})
     if bower_component?(context.pathname)
